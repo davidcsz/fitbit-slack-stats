@@ -1,0 +1,22 @@
+{
+  "name": "fitbit-slack-stats",
+  "version": "1.0.0",
+  "description": "Shows current Fitbit stats in Slack from slash commands.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidcsz/fitbit-slack-stats.git"
+  },
+  "author": "David Sanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidcsz/fitbit-slack-stats/issues"
+  },
+  "homepage": "https://github.com/davidcsz/fitbit-slack-stats#readme",
+  "dependencies": {
+    "hapi": "^16.1.0"
+  }
+}
