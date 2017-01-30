@@ -3,7 +3,7 @@
 const hapi = require('hapi');
 const oauth = require('./lib/oauth.js');
 
-const server = new hapi.server();
+const server = new hapi.Server();
 server.connection({
     host: 'localhost',
     port: 3000
