@@ -2,6 +2,7 @@
 
 const hapi = require('hapi');
 const oauth = require('./lib/oauth.js');
+const config = require('./config.js');
 
 const server = new hapi.Server();
 server.connection({
@@ -18,13 +19,22 @@ server.route({
             console.log('No accesss token detected.');
             console.log('Sending user through Fitbit authorization.');
 
-            reply.redirect(oauth.getImplicitAccessToken(config.fitbit));
+            let authorizationUrl = oauth.getFitbitImplicitAccessToken(config.appCredentials.dev.fitbit);
+            reply('Redirecting to Fitbit authorization...').redirect(authorizationUrl);
         } else if (request.query.access_token !== undefined) {
             let accessToken = request.query.access_token;
             console.log(`Access token found: ${accessToken}`);
         }
     }
 });
+
+server.route({
+    method: 'GET',
+    path: '/slack-authorization',
+    handler: function (request, reply) {
+
+    }
+})
 
 // Start server
 server.start((error) => {
