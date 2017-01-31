@@ -32,7 +32,22 @@ server.route({
     method: 'GET',
     path: '/slack-authorization',
     handler: function (request, reply) {
+        // Handles Slack authorizaiton through Authorization Code Grant Flow
+        if (request.query.code === undefined) {
+            console.log('No authorization code found.');
+            console.log('Sending user through Slack authorization.');
 
+            reply('Getting authorization code...').redirect(oauth.getAuthCode(config.appCredentials.dev.slack));
+        } else if (request.query.code !== undefined) {
+            console.log('Authorization code detected!');
+            console.log('Fetching Slack access token.');
+
+            oauth.getSlackAccessToken(request.query.code, config.appCredentials.dev.slack)
+            .then((accessTokenRequestResponse) => {
+                console.log(accessTokenRequestResponse);
+                reply(`Got access token: ${accessTokenRequestResponse.access_token}`);
+            });
+        }
     }
 })
 
