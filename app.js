@@ -10,6 +10,9 @@ server.connection({
     port: 3000
 });
 
+let fitbitAccessToken;
+let slackAccessToken;
+
 server.route({
     method: 'GET',
     path: '/fitbit-authorization',
@@ -23,7 +26,9 @@ server.route({
             reply('Redirecting to Fitbit authorization...').redirect(authorizationUrl);
         } else if (request.query.access_token !== undefined) {
             let accessToken = request.query.access_token;
+
             console.log(`Access token found: ${accessToken}`);
+            reply('Got Fitbit access token!');
         }
     }
 });
@@ -45,7 +50,7 @@ server.route({
             oauth.getSlackAccessToken(request.query.code, config.appCredentials.dev.slack)
             .then((accessTokenRequestResponse) => {
                 console.log(accessTokenRequestResponse);
-                reply(`Got access token: ${accessTokenRequestResponse.access_token}`);
+                reply(`Got Slack access token: ${accessTokenRequestResponse.access_token}`);
             });
         }
     }
