@@ -15,9 +15,11 @@
   "bugs": {
     "url": "https://github.com/davidcsz/fitbit-slack-stats/issues"
   },
+  "engines": {
+    "node": "7.5.0"
+  },
   "homepage": "https://github.com/davidcsz/fitbit-slack-stats#readme",
   "dependencies": {
-    "dotenv": "^4.0.0",
     "hapi": "^16.1.0",
     "node-fetch": "^1.6.3"
   }

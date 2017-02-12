@@ -17,7 +17,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('App running.');
+        reply('App running. Waiting...');
     }
 });
 
