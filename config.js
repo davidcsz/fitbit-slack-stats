@@ -3,11 +3,7 @@ let redirect;
 if (process.env.PORT === undefined) {
     redirect = `https://${process.env.R_HOST}`;
 } else if (process.env.PORT !== undefined) {
-    if (process.env.HOST === undefined) {
-        throw new Error('Missing HOST!');
-    } else {
-        redirect = `http://${process.env.HOST}:${process.env.PORT}`;
-    }
+    redirect = `http://${process.env.HOST}:${process.env.PORT}`;
 }
 
 module.exports = {
