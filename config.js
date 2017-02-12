@@ -11,7 +11,7 @@ module.exports = {
         uri: {
             authorization: 'https://www.fitbit.com/oauth2/authorize',
             token: 'https://api.fitbit.com/oauth2/token',
-            redirect: `https://${process.env.HOST}/fitbit-authorization`
+            redirect: `https://${process.env.R_HOST}/fitbit-authorization`
         },
         scope: 'activity heartrate location nutrition profile settings sleep social weight',
         responseType: 'code'
@@ -24,7 +24,7 @@ module.exports = {
         uri: {
             authorization: 'https://slack.com/oauth/authorize',
             token: 'https://slack.com/api/oauth.access',
-            redirect: `https://${process.env.HOST}/slack-authorization`
+            redirect: `https://${process.env.R_HOST}/slack-authorization`
         },
         scope: 'chat:write:bot'
     }
