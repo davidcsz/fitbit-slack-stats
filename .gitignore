@@ -43,7 +43,6 @@ jspm_packages
 .env
 
 # Heroku
-Procfile
 
 # Testing
 test.js
