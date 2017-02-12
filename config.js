@@ -1,4 +1,14 @@
-// require('dotenv').config();
+let redirect; 
+
+if (process.env.PORT === undefined) {
+    redirect = `https://${process.env.R_HOST}`;
+} else if (process.env.PORT !== undefined) {
+    if (process.env.HOST === undefined) {
+        throw new Error('Missing HOST!');
+    } else {
+        redirect = `http://${process.env.HOST}:${process.env.PORT}`;
+    }
+}
 
 module.exports = {
     host: process.env.HOST,
@@ -11,7 +21,7 @@ module.exports = {
         uri: {
             authorization: 'https://www.fitbit.com/oauth2/authorize',
             token: 'https://api.fitbit.com/oauth2/token',
-            redirect: `https://${process.env.R_HOST}/fitbit-authorization`
+            redirect: `${redirect}/fitbit-authorization`
         },
         scope: 'activity heartrate location nutrition profile settings sleep social weight',
         responseType: 'code'
@@ -24,7 +34,7 @@ module.exports = {
         uri: {
             authorization: 'https://slack.com/oauth/authorize',
             token: 'https://slack.com/api/oauth.access',
-            redirect: `https://${process.env.R_HOST}/slack-authorization`
+            redirect: `${redirect}/slack-authorization`
         },
         scope: 'chat:write:bot'
     }
