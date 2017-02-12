@@ -42,5 +42,8 @@ jspm_packages
 # Config
 .env
 
+# Heroku
+Procfile
+
 # Testing
 test.js
