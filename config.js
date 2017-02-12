@@ -1,14 +1,14 @@
 let redirect; 
 
-if (process.env.PORT === undefined) {
+if (process.env.R_PORT === undefined) {
     redirect = `https://${process.env.R_HOST}`;
-} else if (process.env.PORT !== undefined) {
-    redirect = `http://${process.env.HOST}:${process.env.PORT}`;
+} else if (process.env.R_PORT !== undefined) {
+    redirect = `http://${process.env.HOST}:${process.env.R_PORT}`;
 }
 
 module.exports = {
     host: process.env.HOST,
-    port: process.env.PORT,
+    port: process.env.R_PORT,
     fitbit: {
         client: {
             id: process.env.FB_ID,
@@ -35,3 +35,5 @@ module.exports = {
         scope: 'chat:write:bot'
     }
 };
+
+// https://www.fitbit.com/oauth2/authorize?client_id=2284LK&redirect_uri=http%3A%2F%2Fundefined%3A6910%2Ffitbit-authorization&response_type=code&scope=activity+heartrate+location+nutrition+profile+settings+sleep+social+weight&state
