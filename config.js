@@ -35,5 +35,3 @@ module.exports = {
         scope: 'chat:write:bot'
     }
 };
-
-// https://www.fitbit.com/oauth2/authorize?client_id=2284LK&redirect_uri=http%3A%2F%2Fundefined%3A6910%2Ffitbit-authorization&response_type=code&scope=activity+heartrate+location+nutrition+profile+settings+sleep+social+weight&state
