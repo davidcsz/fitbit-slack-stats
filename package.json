@@ -16,7 +16,7 @@
     "url": "https://github.com/davidcsz/fitbit-slack-stats/issues"
   },
   "engines": {
-    "node": "7.5.0"
+    "node": "7.6.0"
   },
   "homepage": "https://github.com/davidcsz/fitbit-slack-stats#readme",
   "dependencies": {
